@@ -1,0 +1,19 @@
+{% extends 'adminbar.html' %}
+{% block content %}
+<body align="center">
+<h1> Update Book</h1>
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Book Name:</label><input type="text" name="bname" value="{{data.book_name}}"><br>
+    <label>Book Auther:</label><input type="text" name="aname" value="{{data.book_auther_name }}"><br>
+    <label>Book Price:</label><input type="number" name="price" value="{{data.book_price}}"><br>
+    <label>Book Desc:</label><input type="text" name="bookd" value="{{data.book_description}}"><br>
+    <input type="submit" name="Update book">
+
+</form>
+{% if valid %}
+    <h5 style="color:green"> book added</h5>
+{% endif %}
+</body>
+{% endblock %}

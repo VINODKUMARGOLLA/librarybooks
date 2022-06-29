@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <form method="post" action="logread">
+        {% csrf_token %}
+        <div align="center">
+            <h1> Login Page</h1>
+            <table>
+                <tr>
+                    <td><label>Email:</label></td>
+                    <td><input type="text" name="txtname"</td>
+                </tr>
+                <tr>
+                    <td><label>Password:</label></td>
+                    <td><input type="password" name="txtpswd"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Login" name="btnsub"></td>
+
+                </tr>
+            </table>
+        </div>
+    </form>
+
+</body>
+</html>

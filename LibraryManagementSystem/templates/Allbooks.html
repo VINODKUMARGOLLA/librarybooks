@@ -1,0 +1,32 @@
+{% extends 'adminbar.html' %}
+<style>
+</style>
+{% block content %}
+<body>
+<h1 align="center">All books</h1>
+<table id="customers" align="center">
+    <tr>
+        <th>Book Name</th>
+        <th>Book Author Name</th>
+        <th>Book Price</th>
+        <th>Book Description</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+
+    </tr>
+    {% for i in data %}
+    <tr>
+        <th>{{ i.book_name }}</th>
+        <th>{{i.book_auther_name }}</th>
+        <th>{{i.book_price}}</th>
+        <th>{{i.book_description}}</th>
+        <th><a href="{% url 'update' i.id %}"> Update</a></th>
+        <th><a href="{% url 'del' i.id %}"> Delete</a></th>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+{% endblock %}
