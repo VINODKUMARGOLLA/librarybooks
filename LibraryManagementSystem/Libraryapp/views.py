@@ -1,7 +1,8 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-# Create your views here.
+
 from Libraryapp.models import books
 
 
@@ -12,7 +13,12 @@ def log_read(request):
     user_name = request.POST["txtname"]
     user_pswd = request.POST["txtpswd"]
     user = authenticate(username=user_name, password=user_pswd)
-    return render(request,'admin_home.html')
+    if user is not None:
+        if user.is_superuser:
+            login(request, user)
+            return render(request, 'admin_home.html')
+    else:
+        return HttpResponse("Enter correct Details")
 
 
 def Books(request):
